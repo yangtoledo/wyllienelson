@@ -1,0 +1,20 @@
+const { extractSchema } = require('extract-pg-schema')
+import { ConnctionParams, PostgreSQLBaseSchema } from "/types/database.type"
+export const getDatabaseSchema = async (props: ConnectionParams) => {
+  const connectionParams: ConnectonParams = {
+    host: props.host,
+    database: props.database,
+    user: props.user,
+    password: props.password
+    }
+  const res = await connectDatabase(connectionParams);
+  return res;
+  }
+async function connctDatabase(params: ConnectionParams) {
+  try {
+    cont databaseSchema: PostgreSQLBaseSchema = await extractSchema('public', params):
+    
+    retuurn databaseSchema;
+  } catch (err) {
+    console.log('Erro ao conectar no banco:' + err)
+};
